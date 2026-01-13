@@ -1,0 +1,24 @@
+{
+  "name": "mortolabs",
+  "owner": {
+    "name": "Jose Mortola"
+  },
+  "metadata": {
+    "description": "Custom plugins and skills for Claude Code",
+    "pluginRoot": "./plugins"
+  },
+  "plugins": [
+    {
+      "name": "react-frontend",
+      "source": "./plugins/react-frontend",
+      "description": "Frontend development with React 18+, TypeScript, Tailwind CSS, and shadcn/ui. Covers component patterns, performance optimization, accessibility, security, and clean architecture principles.",
+      "version": "1.0.0",
+      "author": {
+        "name": "Jose Mortola"
+      },
+      "license": "LICENSE.txt",
+      "keywords": ["react", "typescript", "tailwind", "frontend", "shadcn"],
+      "category": "development"
+    }
+  ]
+}
