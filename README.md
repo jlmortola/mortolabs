@@ -10,6 +10,7 @@ Install plugins directly in Claude Code:
 /plugin install react-frontend@mortolabs
 /plugin install react-fullstack@mortolabs
 /plugin install create-react-project@mortolabs
+/plugin install docs@mortolabs
 ```
 
 ## Available Plugins
@@ -55,6 +56,22 @@ Supports:
 - Frontend-only or fullstack with tRPC
 - shadcn/ui setup
 - Testing configuration
+
+### docs
+
+**Type:** Command
+
+Generate project documentation automatically.
+
+```bash
+/docs:create
+```
+
+Features:
+- Creates `docs/` folder with architecture, development, API docs
+- Generates `CLAUDE.md` quick reference
+- Optionally creates `PROJECT_INDEX.json` for codebase analysis (requires Python)
+- Uses git to detect changes and only update affected docs
 
 ## Local Development
 
