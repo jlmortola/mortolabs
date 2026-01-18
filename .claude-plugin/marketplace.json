@@ -1,64 +1,32 @@
 {
-  "name": "mortolabs",
+  "name": "claude-helpers",
   "owner": {
     "name": "Jose Mortola"
   },
   "metadata": {
     "description": "Custom plugins and skills for Claude Code",
-    "pluginRoot": "./plugins"
+    "version": "1.0.0"
   },
   "plugins": [
     {
-      "name": "react-frontend",
-      "source": "./plugins/react-frontend",
-      "description": "Frontend development with React 18+, TypeScript, Tailwind CSS, and shadcn/ui. Covers component patterns, performance optimization, accessibility, security, and clean architecture principles.",
-      "version": "1.0.0",
-      "author": {
-        "name": "Jose Mortola"
-      },
-      "license": "LICENSE.txt",
-      "keywords": ["react", "typescript", "tailwind", "frontend", "shadcn"],
-      "category": "development",
-      "strict": false
+      "name": "react-skills",
+      "description": "React development skills for frontend and fullstack applications with React 18+, TypeScript, Tailwind CSS, tRPC, Drizzle ORM, and Supabase",
+      "source": "./",
+      "strict": false,
+      "skills": [
+        "./plugins/react-frontend",
+        "./plugins/react-fullstack"
+      ]
     },
     {
-      "name": "react-fullstack",
-      "source": "./plugins/react-fullstack",
-      "description": "Fullstack development with tRPC, React Router 7, Drizzle ORM, and Supabase Auth. Covers type-safe APIs, permission systems, data modeling, and security best practices.",
-      "version": "1.0.0",
-      "author": {
-        "name": "Jose Mortola"
-      },
-      "license": "LICENSE.txt",
-      "keywords": ["react", "trpc", "drizzle", "supabase", "fullstack", "api"],
-      "category": "development",
-      "strict": false
-    },
-    {
-      "name": "create-react-project",
-      "source": "./plugins/create-react-project",
-      "description": "Interactive React project scaffolding with support for frontend-only or fullstack (tRPC, Drizzle, Supabase) setups.",
-      "version": "1.0.0",
-      "author": {
-        "name": "Jose Mortola"
-      },
-      "license": "LICENSE.txt",
-      "keywords": ["react", "scaffold", "boilerplate", "generator", "create-app"],
-      "category": "tools",
-      "strict": false
-    },
-    {
-      "name": "docs",
-      "source": "./plugins/docs",
-      "description": "Generate project documentation (docs/, CLAUDE.md, README.md). Optionally creates PROJECT_INDEX.json for better codebase analysis.",
-      "version": "1.0.0",
-      "author": {
-        "name": "Jose Mortola"
-      },
-      "license": "LICENSE.txt",
-      "keywords": ["documentation", "docs", "readme", "claude-md", "index", "generator"],
-      "category": "tools",
-      "strict": false
+      "name": "dev-tools",
+      "description": "Development tools including project scaffolding and documentation generation",
+      "source": "./",
+      "strict": false,
+      "commands": [
+        "./plugins/docs/commands",
+        "./plugins/create-react-project/commands"
+      ]
     }
   ]
 }

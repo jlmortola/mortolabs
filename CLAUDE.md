@@ -1,25 +1,39 @@
-# Mortolabs
+# Claude Helpers
 
 Claude Code plugin marketplace for React development skills and commands.
 
 ## Quick Reference
 
 ```bash
-# Test plugins locally
-claude --plugin-dir ./
+# Add marketplace
+/plugin marketplace add jlmortola/claude-helpers
 
-# Users install with
-/plugin install <plugin-name>@mortolabs
+# Install plugins
+/plugin install react-skills@claude-helpers
+/plugin install dev-tools@claude-helpers
+
+# Test locally
+claude --plugin-dir ./
 ```
 
 ## Available Plugins
 
-| Plugin | Type | Invocation |
-|--------|------|------------|
-| `react-frontend` | Skill | Auto-triggers on React/UI work |
-| `react-fullstack` | Skill | Auto-triggers on API/backend work |
-| `create-react-project` | Command | `/create-react-project:init` |
-| `docs` | Command | `/docs:create` |
+| Plugin | Contains | Type |
+|--------|----------|------|
+| `react-skills` | react-frontend, react-fullstack | Skills (auto-trigger) |
+| `dev-tools` | docs, create-react-project | Commands |
+
+### react-skills
+
+Auto-triggers on React/UI and API/backend work. Includes:
+- **react-frontend**: React 18+, TypeScript, Tailwind, shadcn/ui patterns
+- **react-fullstack**: tRPC, Drizzle ORM, Supabase Auth patterns
+
+### dev-tools
+
+Commands for project setup and documentation:
+- `/dev-tools:create` - Generate docs/, CLAUDE.md, PROJECT_INDEX.json
+- `/dev-tools:init` - Scaffold new React projects
 
 ## Directory Structure
 
@@ -35,15 +49,15 @@ plugins/
 │   └── commands/
 └── docs/                 # Documentation tools
     └── commands/
-        ├── create.md     # Creates docs/, CLAUDE.md (+ optional index)
-        └── scripts/      # Python indexer for PROJECT_INDEX.json
+        ├── create.md
+        └── scripts/
 ```
 
-## Adding a Plugin
+## Adding Skills/Commands
 
 1. Create directory in `plugins/`
 2. Add `SKILL.md` (for skills) or `commands/*.md` (for commands)
-3. Register in `.claude-plugin/marketplace.json`
+3. Register in `.claude-plugin/marketplace.json` under appropriate bundle
 4. Add `LICENSE.txt`
 
 ## Marketplace Config
@@ -54,10 +68,11 @@ Location: `.claude-plugin/marketplace.json`
 {
   "plugins": [
     {
-      "name": "plugin-name",
-      "source": "./plugins/plugin-name",
-      "description": "...",
-      "version": "1.0.0"
+      "name": "bundle-name",
+      "source": "./",
+      "strict": false,
+      "skills": ["./plugins/skill-name"],
+      "commands": ["./plugins/command-name/commands"]
     }
   ]
 }

@@ -1,25 +1,31 @@
-# Mortolabs
+# Claude Helpers
 
 A Claude Code plugin marketplace for React development.
 
 ## Installation
 
-Install plugins directly in Claude Code:
+Add the marketplace and install plugins in Claude Code:
 
 ```bash
-/plugin install react-frontend@mortolabs
-/plugin install react-fullstack@mortolabs
-/plugin install create-react-project@mortolabs
-/plugin install docs@mortolabs
+# Add marketplace
+/plugin marketplace add jlmortola/claude-helpers
+
+# Install plugins
+/plugin install react-skills@claude-helpers
+/plugin install dev-tools@claude-helpers
 ```
 
 ## Available Plugins
 
-### react-frontend
+### react-skills
 
-**Type:** Skill (auto-activates)
+**Type:** Skills (auto-activate based on context)
 
-Frontend development patterns for React 18+, TypeScript, Tailwind CSS, and shadcn/ui. Covers:
+Bundled React development skills:
+
+#### react-frontend
+
+Frontend patterns for React 18+, TypeScript, Tailwind CSS, and shadcn/ui:
 
 - Component patterns and props typing
 - Custom hooks and state management
@@ -28,11 +34,9 @@ Frontend development patterns for React 18+, TypeScript, Tailwind CSS, and shadc
 - Performance optimization
 - Accessibility
 
-### react-fullstack
+#### react-fullstack
 
-**Type:** Skill (auto-activates)
-
-Fullstack development with tRPC, Drizzle ORM, and Supabase Auth. Covers:
+Fullstack development with tRPC, Drizzle ORM, and Supabase Auth:
 
 - tRPC procedure creation
 - Database operations with Drizzle
@@ -40,14 +44,34 @@ Fullstack development with tRPC, Drizzle ORM, and Supabase Auth. Covers:
 - Permission system
 - Security best practices
 
-### create-react-project
+---
 
-**Type:** Command
+### dev-tools
+
+**Type:** Commands
+
+Development tools for project setup and documentation:
+
+#### docs:create
+
+Generate project documentation automatically.
+
+```bash
+/dev-tools:create
+```
+
+Features:
+- Creates `docs/` folder with architecture, development, API docs
+- Generates `CLAUDE.md` quick reference
+- Optionally creates `PROJECT_INDEX.json` for codebase analysis (requires Python)
+- Uses git to detect changes and only update affected docs
+
+#### init
 
 Interactive project scaffolding wizard.
 
 ```bash
-/create-react-project:init my-app
+/dev-tools:init my-app
 ```
 
 Supports:
@@ -56,22 +80,6 @@ Supports:
 - Frontend-only or fullstack with tRPC
 - shadcn/ui setup
 - Testing configuration
-
-### docs
-
-**Type:** Command
-
-Generate project documentation automatically.
-
-```bash
-/docs:create
-```
-
-Features:
-- Creates `docs/` folder with architecture, development, API docs
-- Generates `CLAUDE.md` quick reference
-- Optionally creates `PROJECT_INDEX.json` for codebase analysis (requires Python)
-- Uses git to detect changes and only update affected docs
 
 ## Local Development
 
